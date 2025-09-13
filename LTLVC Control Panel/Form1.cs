@@ -24,6 +24,9 @@ namespace LTLVC_Control_Panel
         String below1_2 = ":";
 
         String startingtime;
+
+        bool midjoin;
+        bool enable = true;
         public Form1()
         {
             InitializeComponent();
@@ -45,8 +48,16 @@ namespace LTLVC_Control_Panel
         private void startStopwatchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             timer1.Start(); // timer to get current elasped time
+            enable = false;
 
-            DateTime currentTime = DateTime.Now;
+            if (midjoin)
+                button1.Enabled = true;
+            else
+                button1.Enabled = false;
+
+            checkBox1.Enabled = false;
+
+                DateTime currentTime = DateTime.Now;
             startingtime = Convert.ToString(currentTime);
         }
 
@@ -93,6 +104,10 @@ namespace LTLVC_Control_Panel
         private void endCompetitionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             timer1.Stop();
+            enable = true;
+            button1.Enabled = true;
+            checkBox1.Enabled = true;
+
             DateTime currentTime = DateTime.Now;
             string endingTime = Convert.ToString(currentTime);
 
@@ -140,6 +155,11 @@ namespace LTLVC_Control_Panel
                 }
             }
             else { }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            midjoin = !midjoin;
         }
     }
 }

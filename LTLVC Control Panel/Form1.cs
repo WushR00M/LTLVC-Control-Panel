@@ -31,6 +31,7 @@ namespace LTLVC_Control_Panel
         {
             InitializeComponent();
             timer3.Start(); // timer to get current date and time
+            timer4.Start(); // update flag for adding a contestant to the checklist
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -160,6 +161,16 @@ namespace LTLVC_Control_Panel
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             midjoin = !midjoin;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
